@@ -1,0 +1,3 @@
+﻿  game.c
+C:\Users\Zerotwo\Desktop\san_zi_qi\Project1\Project1\game.c(56,11): warning C4013: “rand”未定义；假设外部返回 int
+  Project1.vcxproj -> C:\Users\Zerotwo\Desktop\san_zi_qi\Project1\Debug\Project1.exe
