@@ -1,0 +1,4 @@
+﻿  main.c
+D:\c语言\c_project\shun_xu_biao\顺序表\顺序表\main.c(103): warning C4715: “list_delete”: 不是所有的控件路径都返回值
+D:\c语言\c_project\shun_xu_biao\顺序表\顺序表\main.c(123): warning C4715: “locat_elem”: 不是所有的控件路径都返回值
+  顺序表.vcxproj -> D:\c语言\c_project\shun_xu_biao\顺序表\Debug\顺序表.exe
