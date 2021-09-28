@@ -1,0 +1,224 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include "contact.h"
+
+
+void InitContact(struct Contact* ps)
+{
+
+	ps->data = (struct PeoInfo*)calloc(INIT_NUM, sizeof(struct PeoInfo));
+	if (ps->data == NULL)
+	{
+		printf("初始化失败，空间不够\n");
+	}
+	else
+	{
+		ps->size = 0;
+		ps->max = INIT_NUM;
+	}
+	LoadContact(ps);
+}
+
+
+void CheckCapacity(struct Contact* ps)
+{
+	struct PeoInfo* tmp;
+	if (ps->size == ps->max)
+	{
+		ps->max += 2;
+		tmp = realloc(ps->data, (sizeof(struct PeoInfo) * ps->max));
+		if (tmp == NULL)
+		{
+			printf("空间不够，无法增加新通讯录\n");
+			exit(-1);
+		}
+		else
+		{
+			ps->data = tmp;
+		}
+	}
+}
+
+void ShowContact(struct Contact* ps)
+{
+	int i;
+	if (ps->size == 0)
+	{
+		printf("通讯录为空，请先输入！\n");
+	}
+	else
+	{
+		printf("%-20s%-5s%-5s%-12s%-30s\n", "姓名", "年龄", "性别", "电话", "地址");
+		for (i = 0; i < ps->size; i++)
+		{
+			printf("%-20s%-5d%-5s%-12s%-30s\n", ps->data[i].name,
+				ps->data[i].age,
+				ps->data[i].sex,
+				ps->data[i].tele,
+				ps->data[i].addr);
+		}
+	}
+}
+
+void AddContact(struct Contact* ps)
+{
+	CheckCapacity(ps);
+	
+
+	printf("请输入姓名：");
+	scanf("%s", &ps->data[ps->size].name);
+	printf("请输入年龄：");
+	scanf("%d", &ps->data[ps->size].age);
+	printf("请输入性别：");
+	scanf("%s", &ps->data[ps->size].sex);
+	printf("请输入电话：");
+	scanf("%s", &ps->data[ps->size].tele);
+	printf("请输入地址：");
+	scanf("%s", &ps->data[ps->size].addr);
+	ps->size++;
+	
+
+}
+
+int FindByName(struct Contact* ps, char fname[MAX_NAME])
+{
+	int i;
+	for (i = 0; i < ps->size; i++)
+	{
+		if (strcmp(ps->data[i].name, fname) == 0)
+		{
+			return  i;
+		}
+	}
+	return -1;
+}
+
+void DelContact(struct Contact* ps)
+{
+	char dname[MAX_NAME];
+	int ret;
+	int i;
+	ShowContact(ps);
+	printf("请输入要删除人联系人的名字：");
+	scanf("%s", dname);
+	ret = FindByName(ps, dname);
+	if (ret != -1)
+	{
+		for (i = ret; i < ps->size - 1; i++)
+		{
+			ps->data[ret] = ps->data[ret + 1];
+		}
+		ps->size--;
+		printf("该联系人已删除!\n");
+	}
+	else
+	{
+		printf("查无此人\n");
+	}
+}
+
+void FindContact(struct Contact* ps)
+{
+	char fname[MAX_NAME];
+	int ret;
+	printf("请输入要查找联系人的名字:");
+	scanf("%s", fname);
+	ret = FindByName(ps, fname);
+	if (ret == -1)
+	{
+		printf("查无此人！\n");
+	}
+	else
+	{
+		printf("%-20s%-5s%-5s%-12s%-30s\n", "姓名", "年龄", "性别", "电话", "地址");
+		printf("%-20s%-5d%-5s%-12s%-30s\n", ps->data[ret].name,
+			ps->data[ret].age,
+			ps->data[ret].sex,
+			ps->data[ret].tele,
+			ps->data[ret].addr);
+	}
+}
+
+void ModifyContact(struct Contact* ps)
+{
+	char mname[MAX_NAME];
+	int ret;
+	printf("请输入要修改联系人的名字:");
+	scanf("%s", mname);
+	ret = FindByName(ps, mname);
+	if (ret == -1)
+	{
+		printf("查无此人！\n");
+	}
+	else
+	{
+		printf("%-20s%-5s%-5s%-12s%-30s\n", "姓名", "年龄", "性别", "电话", "地址");
+		printf("%-20s%-5d%-5s%-12s%-30s\n", ps->data[ret].name,
+			ps->data[ret].age,
+			ps->data[ret].sex,
+			ps->data[ret].tele,
+			ps->data[ret].addr);
+		printf("请重新输入姓名：");
+		scanf("%s", &ps->data[ret].name);
+		printf("请重新输入年龄：");
+		scanf("%d", &ps->data[ret].age);
+		printf("请重新输入性别：");
+		scanf("%s", &ps->data[ret].sex);
+		printf("请输入电话：");
+		scanf("%s", &ps->data[ret].tele);
+		printf("请输入地址：");
+		scanf("%s", &ps->data[ret].addr);
+
+	}
+}
+
+int cmp(const void* a, const void* b)
+{
+	return memcmp(a, b, sizeof(struct PeoInfo));
+}
+
+void SortContact(struct Contact* ps)
+{
+	qsort(ps->data, ps->size, sizeof(struct PeoInfo), cmp);
+}
+
+
+void LoadContact(struct Contact* ps)
+{
+	FILE* pf = fopen("contact.txt", "rb");;
+	if (NULL == pf)
+	{
+		perror("LoadContact::fopen");
+		exit(-1);
+	}
+	
+	struct PeoInfo tmp = {0};
+	while (fread(&tmp, sizeof(struct PeoInfo), 1, pf))
+	{
+		CheckCapacity(ps);
+		ps->data[ps->size] = tmp;
+		ps->size++;
+	}
+	fclose(pf);
+	pf = NULL;
+	printf("加载文件成功");
+}
+
+
+void SaveContact(struct Contact* ps)
+{
+	FILE* pf = fopen("contact.txt", "wb");
+
+	if (NULL == pf)
+	{
+		perror("SaveContact::fopen");
+		exit(-1);
+	}
+	int i = 0;
+	for (int i = 0; i < ps->size; i++)
+	{
+		fwrite(&(ps->data[i]), sizeof(struct PeoInfo), 1, pf);
+	}
+	fclose(pf);
+	pf = NULL;
+	printf("保存文件成功");
+}
