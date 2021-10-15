@@ -44,7 +44,7 @@ void CheckCapacity(SeqList* ps)
 		
 		if (new_data == NULL)
 		{
-			printf("开辟空间失败\n");
+			printf("寮�杈熺┖闂村け璐n");
 			exit(-1);
 		}
 		{
@@ -68,7 +68,7 @@ void SeqListPopBack(SeqList* ps)
 	assert(ps);
 	if (ps->size == 0)
 	{
-		printf("顺序表已空，无法删除\n");
+		printf("椤哄簭琛ㄥ凡绌猴紝鏃犳硶鍒犻櫎\n");
 		return;
 	}
 	else
@@ -97,7 +97,7 @@ void SeqListPopFront(SeqList* ps)
 	assert(ps);
 	if (ps->size == 0)
 	{
-		printf("顺序表已空，无法删除\n");
+		printf("椤哄簭琛ㄥ凡绌猴紝鏃犳硶鍒犻櫎\n");
 		return;
 	}
 
@@ -114,7 +114,7 @@ void SeqListInsert(SeqList* ps, SeqListDataType x, int pos)
 	assert(ps);
 	if (pos > ps->size || pos < 0)
 	{
-		printf("非法位置输入\n");
+		printf("闈炴硶浣嶇疆杈撳叆\n");
 		return;
 	}
 	CheckCapacity(ps);
@@ -132,12 +132,12 @@ void SeqListErase(SeqList* ps, int pos)
 	assert(ps);
 	if (pos > ps->size || pos < 0)
 	{
-		printf("非法位置输入\n");
+		printf("闈炴硶浣嶇疆杈撳叆\n");
 		return;
 	}
 	if (ps->size == 0)
 	{
-		printf("顺序表已空，无法删除\n");
+		printf("椤哄簭琛ㄥ凡绌猴紝鏃犳硶鍒犻櫎\n");
 		return;
 	}
 	for (int i = pos; i < ps->size - 1; i++)
@@ -158,3 +158,4 @@ int SeqListFind(SeqList* ps, SeqListDataType x)
 	return -1;
 
 }
+//
