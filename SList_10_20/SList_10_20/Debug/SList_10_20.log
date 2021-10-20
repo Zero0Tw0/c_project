@@ -1,0 +1,17 @@
+﻿  test.c
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(12,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(15,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(18,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(21,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(24,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(36,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(38,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(40,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(42,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(44,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(30,13): warning C4101: “pos”: 未引用的局部变量
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(62,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(66,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(70,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+D:\c语言\repository\c_project\SList_10_20\SList_10_20\test.c(76,18): warning C4133: “函数”: 从“SListNode *”到“SListDataType *”的类型不兼容
+  SList_10_20.vcxproj -> D:\c语言\repository\c_project\SList_10_20\Debug\SList_10_20.exe
