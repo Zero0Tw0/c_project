@@ -1,2 +1,5 @@
-﻿  test.c
+﻿  List.c
+  test.c
+  正在生成代码...
+D:\c语言\repository\c_project\List_10_27\List_10_27\List.c(9): warning C4716: “ListInit”: 必须返回一个值
   List_10_27.vcxproj -> D:\c语言\repository\c_project\List_10_27\Debug\List_10_27.exe
