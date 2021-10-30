@@ -4,7 +4,9 @@
 #include<assert.h>
 #include<stdbool.h>
 
-void swap(int* a, int* b)
+
+
+void swap(int* a, int* b)				//交换
 {
 	int tmp = 0;
 	tmp = *a;
@@ -12,7 +14,7 @@ void swap(int* a, int* b)
 	*b = tmp;
 }
 
-void HeapAdjustDownSmall(int* Heap, int HeapSize, int parent)		//调小堆
+void SmallHeapAdjustDown(int* Heap, int HeapSize, int parent)		//调小堆
 {
 	int child = parent * 2 + 1;
 	while (child < HeapSize)
@@ -34,7 +36,7 @@ void HeapAdjustDownSmall(int* Heap, int HeapSize, int parent)		//调小堆
 	}
 }
 
-void HeapAdjustDownBig(int* Heap, int HeapSize, int parent)		//调小堆
+void BigHeapAdjustDown(int* Heap, int HeapSize, int parent)		//调大堆
 {
 	int child = parent * 2 + 1;
 	while (child < HeapSize)
@@ -56,11 +58,11 @@ void HeapAdjustDownBig(int* Heap, int HeapSize, int parent)		//调小堆
 	}
 }
 
-void BuildHeap(int* heap, int HeapSize)					//建大堆
+void BigHeapBuild(int* heap, int HeapSize)					//建大堆
 {
 	for (int i = (HeapSize - 1 - 1) / 2; i >= 0; i--)
 	{
-		HeapAdjustDownBig(heap, HeapSize, i);
+		BigHeapAdjustDown(heap, HeapSize, i);
 	}
 }
 
@@ -74,22 +76,56 @@ void HeapPrint(int* heap, int size)
 	printf("\n");
 }
 
+void BigHeapSort(int* heap, int heapsize)			//排升序
+{
+	int tail = heapsize - 1;
+	int tmp;
+	while (tail)
+	{
+		swap(&heap[0], &heap[tail]);
+		tail--;
+		BigHeapAdjustDown(heap, tail+1, 0);
+	}
+}
+
+void SmallHeapSort(int* heap, int heapsize)			//排降序
+{
+	int tail = heapsize - 1;
+	int tmp;
+	while (tail)
+	{
+		swap(&heap[0], &heap[tail]);
+		tail--;
+		SmallHeapAdjustDown(heap, tail + 1, 0);
+	}
+}
+
+
+
 void test1()
 {
-	int heap1[] = { 27,15,19,18,28,34,65,49,25,37 };		//堆调测试
+	int heap1[] = { 27,15,19,18,28,34,65,49,25,37 };		//调小测试
 	int size1 = sizeof(heap1) / sizeof(heap1[0]);
-	HeapAdjustDownSmall(heap1, size1, 0);
+	SmallHeapAdjustDown(heap1, size1, 0);
 	HeapPrint(heap1, size1);
 
 
 	int heap2[] = { 1,5,3,8,7,6 };							//建大堆测试
 	int size2 = sizeof(heap2) / sizeof(heap2[0]);
-	BuildHeap(heap2, size2);
+	BigHeapBuild(heap2, size2);
 	HeapPrint(heap2, size2);
 
+	BigHeapSort(heap2, size2);								//排升序测试
+	HeapPrint(heap2, size2);
+
+	SmallHeapSort(heap1,size1);								//排降序测试
+	HeapPrint(heap1, size1);
 }
+
+
 
 int main()
 {
 	test1();
+	return 0;
 }

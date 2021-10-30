@@ -1,2 +1,4 @@
 ﻿  Heap.c
+D:\c语言\repository\c_project\Heap_10_29\Heap_10_29\Heap.c(82,6): warning C4101: “tmp”: 未引用的局部变量
+D:\c语言\repository\c_project\Heap_10_29\Heap_10_29\Heap.c(94,6): warning C4101: “tmp”: 未引用的局部变量
   Heap_10_29.vcxproj -> D:\c语言\repository\c_project\Heap_10_29\Debug\Heap_10_29.exe
