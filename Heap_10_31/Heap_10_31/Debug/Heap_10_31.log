@@ -1,2 +1,11 @@
-﻿  test.c
+﻿  Heap.c
+D:\c语言\repository\c_project\Heap_10_31\Heap_10_31\Heap.c(13,10): warning C4047: “=”:“HeapDataType”与“HeapDataType *”的间接级别不同
+D:\c语言\repository\c_project\Heap_10_31\Heap_10_31\Heap.c(11,1): warning C4047: “初始化”:“HeapDataType *”与“HeapDataType”的间接级别不同
+D:\c语言\repository\c_project\Heap_10_31\Heap_10_31\Heap.c(18,1): warning C4029: 声明的形参表不同于定义
+D:\c语言\repository\c_project\Heap_10_31\Heap_10_31\Heap.c(41,21): warning C4028: 形参 1 与声明不同
+D:\c语言\repository\c_project\Heap_10_31\Heap_10_31\Heap.c(62,22): warning C4028: 形参 1 与声明不同
+D:\c语言\repository\c_project\Heap_10_31\Heap_10_31\Heap.c(63,1): warning C4029: 声明的形参表不同于定义
+D:\c语言\repository\c_project\Heap_10_31\Heap_10_31\Heap.c(82,8): warning C4013: “memcpy”未定义；假设外部返回 int
+  test.c
+  正在生成代码...
   Heap_10_31.vcxproj -> D:\c语言\repository\c_project\Heap_10_31\Debug\Heap_10_31.exe
