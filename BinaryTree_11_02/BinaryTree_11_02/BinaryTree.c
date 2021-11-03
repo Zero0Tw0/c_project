@@ -62,6 +62,66 @@ int TreeSize(BTNode* root)							//结点个数
 
 }
 
-int BinaryTreeLeafSize(BTNode* root);				//叶结点个数
-int BinaryTreeLevelKSize(BTNode* root, int k);		//第k层结点个数
-BTNode* BinaryTreeFind(BTNode* root, BTDataType x);	//二叉树查找
+int MaxDepth(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	int leftdepth = MaxDepth(root->left);
+	int rightdepth = MaxDepth(root->right);
+
+	return leftdepth > rightdepth ? leftdepth+1 : rightdepth+1;
+
+}
+
+int BinaryTreeLeafSize(BTNode* root)				//叶结点个数
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	if (root->left == NULL && root->right == NULL)
+	{
+		return 1;
+	}
+	
+	return BinaryTreeLeafSize(root->left) + BinaryTreeLeafSize(root->right);
+}
+int BinaryTreeLevelKSize(BTNode* root, int k)		//第k层结点个数
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	if (k == 1)
+	{
+		return 1;
+	}
+	return BinaryTreeLevelKSize(root->left, k - 1) + BinaryTreeLevelKSize(root->right, k - 1);
+}
+BTNode* BinaryTreeFind(BTNode* root, BTDataType x)	//二叉树查找
+{
+	if (root == NULL)
+	{
+		return NULL;
+	}
+	if (root->val == x)
+	{
+		return root;
+	}
+	BTNode* left = BinaryTreeFind(root->left, x);
+	if (left)
+	{
+		return left;
+	}
+
+	BTNode* right = BinaryTreeFind(root->right, x);
+	if (right)
+	{
+		return right;
+	}
+
+	return NULL;
+
+}

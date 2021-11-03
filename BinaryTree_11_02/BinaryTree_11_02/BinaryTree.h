@@ -23,4 +23,5 @@ void PostOrder(BTNode* root);						//后序遍历
 int TreeSize(BTNode* root);							//结点个数
 int BinaryTreeLeafSize(BTNode* root);				//叶结点个数
 int BinaryTreeLevelKSize(BTNode* root, int k);		//第k层结点个数
+int MaxDepth(BTNode* root);							//二叉树最大深度
 BTNode* BinaryTreeFind(BTNode* root, BTDataType x);	//二叉树查找

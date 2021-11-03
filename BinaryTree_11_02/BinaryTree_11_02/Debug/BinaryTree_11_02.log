@@ -1,5 +1,2 @@
-﻿  BinaryTree.c
-  test.c
-  正在生成代码...
-D:\c语言\repository\c_project\BinaryTree_11_02\BinaryTree_11_02\BinaryTree.c(10): warning C4716: “CreatTreeNode”: 必须返回一个值
+﻿  test.c
   BinaryTree_11_02.vcxproj -> D:\c语言\repository\c_project\BinaryTree_11_02\Debug\BinaryTree_11_02.exe
