@@ -1,11 +1,13 @@
 #include"Sort.h"
+#include"Stack.h"
+
 
 void InsertSortTest()
 {
 	printf("InsertSortTest:\n");
 	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
 	int size1 = sizeof(str1) / sizeof(str1[0]);
-	int str2[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
 	int size2 = sizeof(str2) / sizeof(str2[0]);
 	int str3[] = { 6,9,4,3,8,1,5,2,10,7 };
 	int size3 = sizeof(str3) / sizeof(str3[0]);
@@ -23,7 +25,7 @@ void ShellSortTest()
 	printf("ShellSortTest:\n");
 	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
 	int size1 = sizeof(str1) / sizeof(str1[0]);
-	int str2[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
 	int size2 = sizeof(str2) / sizeof(str2[0]);
 	int str3[] = { 6,9,4,3,8,1,5,2,10,7 };
 	int size3 = sizeof(str3) / sizeof(str3[0]);
@@ -41,7 +43,7 @@ void SelectSortTest()
 	printf("SelectSortTest:\n");
 	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
 	int size1 = sizeof(str1) / sizeof(str1[0]);
-	int str2[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
 	int size2 = sizeof(str2) / sizeof(str2[0]);
 	int str3[] = { 6,9,4,3,8,1,5,2,10,7 };
 	int size3 = sizeof(str3) / sizeof(str3[0]);
@@ -59,7 +61,7 @@ void HeapSortTest()
 	printf("HeapSortTest:\n");
 	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
 	int size1 = sizeof(str1) / sizeof(str1[0]);
-	int str2[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
 	int size2 = sizeof(str2) / sizeof(str2[0]);
 	int str3[] = { 6,9,4,3,8,1,5,2,10,7 };
 	int size3 = sizeof(str3) / sizeof(str3[0]);
@@ -77,7 +79,7 @@ void BubbleSortTest()
 	printf("BubbleSortTest:\n");
 	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
 	int size1 = sizeof(str1) / sizeof(str1[0]);
-	int str2[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
 	int size2 = sizeof(str2) / sizeof(str2[0]);
 	int str3[] = { 6,9,4,3,8,1,5,2,10,7 };
 	int size3 = sizeof(str3) / sizeof(str3[0]);
@@ -95,7 +97,7 @@ void QuickSortTest()
 	printf("QuickSortTest:\n");
 	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
 	int size1 = sizeof(str1) / sizeof(str1[0]);
-	int str2[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
 	int size2 = sizeof(str2) / sizeof(str2[0]);
 	int str3[] = { 6,1,2,7,9,3,4,5,10,8 };
 	int size3 = sizeof(str3) / sizeof(str3[0]);
@@ -108,13 +110,89 @@ void QuickSortTest()
 	StrPrint(str3, size3);
 }
 
+void QuickSortNonRTest()
+{
+	printf("QuickSortNonRTest:\n");
+	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
+	int size1 = sizeof(str1) / sizeof(str1[0]);
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
+	int size2 = sizeof(str2) / sizeof(str2[0]);
+	int str3[] = { 6,1,2,7,9,3,4,5,10,8 };
+	int size3 = sizeof(str3) / sizeof(str3[0]);
+
+	QuickSortNonR(str1, 0, size1 - 1);
+	StrPrint(str1, size1);
+	QuickSortNonR(str2, 0, size2 - 1);
+	StrPrint(str2, size2);
+	QuickSortNonR(str3, 0, size3 - 1);
+	StrPrint(str3, size3);
+}
+
+void MergeSortTest()
+{
+	printf("MergeSortTest:\n");
+	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
+	int size1 = sizeof(str1) / sizeof(str1[0]);
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
+	int size2 = sizeof(str2) / sizeof(str2[0]);
+	int str3[] = { 6,1,2,7,9,3,4,5,10,8 };
+	int size3 = sizeof(str3) / sizeof(str3[0]);
+
+	MergeSort(str1, size1);
+	StrPrint(str1, size1);
+	MergeSort(str2, size2);
+	StrPrint(str2, size2);
+	MergeSort(str3, size3);
+	StrPrint(str3, size3);
+}
+
+void MergeSortNonRTest()
+{
+	printf("MergeSortNonRTest:\n");
+	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
+	int size1 = sizeof(str1) / sizeof(str1[0]);
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
+	int size2 = sizeof(str2) / sizeof(str2[0]);
+	int str3[] = { 6,1,2,7,9,3,4,5,10,8 };
+	int size3 = sizeof(str3) / sizeof(str3[0]);
+
+	MergeSortNonR(str1, size1);
+	StrPrint(str1, size1);
+	MergeSortNonR(str2, size2);
+	StrPrint(str2, size2);
+	MergeSortNonR(str3, size3);
+	StrPrint(str3, size3);
+}
+
+void CountSortTest()
+{
+	printf("CountSortTest:\n");
+	int str1[] = { 10,9,8,7,6,5,4,3,2,1 };
+	int size1 = sizeof(str1) / sizeof(str1[0]);
+	int str2[] = { 2,3,2,3,2,3,2,3,2,3 };
+	int size2 = sizeof(str2) / sizeof(str2[0]);
+	int str3[] = { 6,1,2,7,9,3,4,5,10,8 };
+	int size3 = sizeof(str3) / sizeof(str3[0]);
+
+	CountSort(str1, size1);
+	StrPrint(str1, size1);
+	CountSort(str2, size2);
+	StrPrint(str2, size2);
+	CountSort(str3, size3);
+	StrPrint(str3, size3);
+}
+
 int main()
 {
-	/*InsertSortTest();
+	InsertSortTest();
 	ShellSortTest();
 	SelectSortTest();
 	HeapSortTest();
-	BubbleSortTest();*/
+	BubbleSortTest();
 	QuickSortTest();
+	QuickSortNonRTest();
+	MergeSortTest();
+	MergeSortNonRTest();
+	CountSortTest();
 }
 	

@@ -1,5 +1,2 @@
 ﻿  test.c
-D:\c语言\repository\c_project\Sort_11_20\Sort_11_20\test.c(103,26): warning C4020: “QuickSort”: 实参太多
-D:\c语言\repository\c_project\Sort_11_20\Sort_11_20\test.c(105,27): warning C4020: “QuickSort”: 实参太多
-D:\c语言\repository\c_project\Sort_11_20\Sort_11_20\test.c(107,27): warning C4020: “QuickSort”: 实参太多
   Sort_11_20.vcxproj -> D:\c语言\repository\c_project\Sort_11_20\Debug\Sort_11_20.exe
